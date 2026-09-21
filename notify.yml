@@ -1,0 +1,38 @@
+name: YouTube新着をDiscordへ
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # 15分おき（GitHubの都合で数分〜十数分遅れることがあります）
+  workflow_dispatch:          # Actions画面の「Run workflow」で手動実行もできる
+
+permissions:
+  contents: write             # state.json（通知済みの記録）を保存するため
+
+concurrency:
+  group: yt-discord
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: 新着を確認してDiscordに投稿
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SKIP_SHORTS: "false"    # ショート動画を通知しないなら "true"
+        run: python3 notify.py
+
+      - name: 通知済みの記録を保存
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain state.json)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state.json
+            git commit -m "通知済みの記録を更新"
+            git pull --rebase --autostash
+            git push
+          fi
