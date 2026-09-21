@@ -1,0 +1,8 @@
+# 通知したいYouTubeチャンネルを1行に1つ書きます。数に上限はありません。
+# 書き方はどれでもOK（URLの ?si=... が付いたままでも大丈夫）：
+#   https://youtube.com/@meimon-yowa
+#   @meimon-yowa
+#   UC7ohjjJAuEoSqhetYT8fIEQ
+# 「#」で始まる行はメモ扱いで無視されます。
+
+https://youtube.com/@meimon-yowa   # 弱小の名門
