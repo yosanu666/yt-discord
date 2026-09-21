@@ -26,6 +26,7 @@ jobs:
         run: python3 notify.py
 
       - name: 通知済みの記録を保存
+        if: always()
         run: |
           if [ -n "$(git status --porcelain state.json)" ]; then
             git config user.name  "github-actions[bot]"
