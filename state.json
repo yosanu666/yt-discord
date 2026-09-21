@@ -1,5 +1,45 @@
 {
- "channels": {},
+ "channels": {
+  "UC7ohjjJAuEoSqhetYT8fIEQ": {
+   "init": [
+    "page"
+   ],
+   "last_ok": "2026-09-21T05:14:14.946123+00:00",
+   "seen": [
+    "3FSXUcqflEY",
+    "oKwJXCKe2jw",
+    "LCMciijds28",
+    "Tn2LKPFJkWQ",
+    "APAi89unAlg",
+    "danMRysMKaI",
+    "Fof_B912ZQ8",
+    "CQCdjtHsg-A",
+    "oxBgT4FgPxs",
+    "XHMLjUotGbU",
+    "n_qIKmh2Ej8",
+    "o8sRJWJELNk",
+    "UsyVOpCWogw",
+    "DFeE5jf6Zp8",
+    "-SLzhiMduIE",
+    "_BrGOLswF6U",
+    "ln3dPuEz_a4",
+    "a6I_GBsMwE0",
+    "w6KpR6UVieg",
+    "zFkNyG8oRno",
+    "rTEZl3irCiA",
+    "8TxXM0CXaHs",
+    "9WPxELIdidE",
+    "obSX6tOD4PQ",
+    "Di0OCPSTbLA",
+    "BMtgDL0Zvhg",
+    "gWYKQOKU_f8",
+    "l9LBz6n0w8E",
+    "nQX2Q8yUUAU",
+    "5_88gsVIrPE"
+   ],
+   "title": "弱小の名門"
+  }
+ },
  "heartbeat": "2026-09",
  "resolved": {
   "@meimon-yowa": "UC7ohjjJAuEoSqhetYT8fIEQ"
