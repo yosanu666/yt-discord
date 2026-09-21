@@ -2,9 +2,10 @@
  "channels": {
   "UC2koII4nr593H4ofhpMxpcg": {
    "init": [
-    "page"
+    "page",
+    "rss"
    ],
-   "last_ok": "2026-09-21T06:55:42.239132+00:00",
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
    "seen": [
     "BKAfTT85nec",
     "6Ba6_mOQ24o",
@@ -57,11 +58,36 @@
    ],
    "title": "kichi"
   },
+  "UC3LEiJL7FggdyKykOgj2W-w": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "77e4rRd9C0A",
+    "Vly92aUqaa8",
+    "hNejqwQwLec",
+    "GWkXpJP2f6Y",
+    "2ZVwVHktU2g",
+    "NtovT2TqZNs",
+    "PQ-V2uX08Ds",
+    "0Bq-P9ZYekQ",
+    "-dOYxQvrYVQ",
+    "f0_JgVICoK0",
+    "CQSW6JEWOKk",
+    "beN5fMx8mwQ",
+    "KeLvzku97ww",
+    "X5il1qMKjbA",
+    "374t_FouSt0"
+   ],
+   "title": "Game House 遊戲小屋"
+  },
   "UC3MhLMcQk4pORLm7VeapEYA": {
    "init": [
-    "page"
+    "page",
+    "rss"
    ],
-   "last_ok": "2026-09-21T06:55:42.239132+00:00",
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
    "seen": [
     "V2fEQhF23fo",
     "c67HCkxANJk",
@@ -169,9 +195,10 @@
   },
   "UC3ZIJr4UalbUbHXBzsabqTA": {
    "init": [
-    "page"
+    "page",
+    "rss"
    ],
-   "last_ok": "2026-09-21T06:55:42.239132+00:00",
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
    "seen": [
     "yYM8o1apnRY",
     "qdvoI7gKhus",
@@ -249,9 +276,10 @@
   },
   "UC6tyRPZFsGORc-bOn1lXSmQ": {
    "init": [
-    "page"
+    "page",
+    "rss"
    ],
-   "last_ok": "2026-09-21T06:55:42.239132+00:00",
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
    "seen": [
     "gSwNEkqXIpY",
     "0ONgdxhpImk",
@@ -339,11 +367,24 @@
    ],
    "title": "ともちー"
   },
+  "UC7Ggx2F9x1nlv1nZJ35rTSg": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "v6odukFj3HI",
+    "TYGqD6ro3wQ",
+    "HPDNY2kbGuo"
+   ],
+   "title": "主能夠"
+  },
   "UC7ohjjJAuEoSqhetYT8fIEQ": {
    "init": [
-    "page"
+    "page",
+    "rss"
    ],
-   "last_ok": "2026-09-21T06:55:42.239132+00:00",
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
    "seen": [
     "3FSXUcqflEY",
     "oKwJXCKe2jw",
@@ -377,6 +418,455 @@
     "5_88gsVIrPE"
    ],
    "title": "弱小の名門"
+  },
+  "UCAKTeaah_pAk423FW2aIxdQ": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "5gv0Dfx2cjE",
+    "xQzSHmoIJfc",
+    "AmNlsRN4txw",
+    "FiMlVpiOQg8",
+    "rWGrbKiJfNY",
+    "Giv3fYIXeYU",
+    "6W3-7hNoPp0",
+    "Mq7f5Uw-ApI",
+    "1JS1jAanM10",
+    "ARrwao-tIs8",
+    "SEYEOYh8G4U",
+    "HVXx1pzaZwc",
+    "2mnMR9lONpA",
+    "4RrEZq_8XSI",
+    "-SAaDdzlarc"
+   ],
+   "title": "正義養貓中"
+  },
+  "UCFKtcZ-ee9jmYgbihRIdsSg": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "Z28Y_B0RiHQ",
+    "MBLmF5JQljM",
+    "ozX76_u7zQc",
+    "zce_DN5dz4Q",
+    "WHhZ--jWMkY",
+    "RBfmv7ep_NU",
+    "O5sep5C-MAg",
+    "HF0GMDyXtHk",
+    "bbEUPmtuXBk",
+    "3pV-jqCUGx4",
+    "h8tMtvyNEII",
+    "87TbahGYEHk",
+    "4XUvG2ISN0c",
+    "jfVODwL28wI",
+    "e1rVvIk3QrQ"
+   ],
+   "title": "R1ck"
+  },
+  "UCG3RUxM5J25GBGT-irbUP3w": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "6vakVmXSkGg",
+    "e_FHrgxTRZY"
+   ],
+   "title": "TheTrampyZebras"
+  },
+  "UCGMZgUKE0oyWYZrxLANsvsQ": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "iHY-5erzH-k",
+    "tV2XPkl7V7U",
+    "pJdNN8emXII",
+    "bR9752oi2VM",
+    "3GQkZZDyTfw",
+    "_S1cuqEiLLw",
+    "v3IqzKXgkOk",
+    "mNVkO636f7o",
+    "VJwvJn2CJQo",
+    "OmCwdGCFY8s",
+    "vuuNY__eyI0",
+    "xJMepOb9Xn0",
+    "6O5wUQPpcgc",
+    "deASnhF41uY",
+    "bS9uX6uvNPQ"
+   ],
+   "title": "支竹火腩飯"
+  },
+  "UCI9p_4WS94s_dDfqg9XF-Tw": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "lBZ3DQzd848",
+    "FGpcic3SvxU",
+    "lrG9kBp3OR8",
+    "P8_a-A7SL5I",
+    "lBc-bWLQMf8",
+    "Qh_8gj9b54s",
+    "c5c20qZKOuk",
+    "XJi8wp3G34w",
+    "HtMJ6VPNmXY",
+    "DqC-1oYS4qg",
+    "onAgdkGA-RA"
+   ],
+   "title": "楊志"
+  },
+  "UCNBg1rsQCln4P9t2XfYUzSg": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "JmjTdQoqpyg",
+    "fO3wXueoahE",
+    "5Vlr9A-uXiA",
+    "WxoTXgx4K-M",
+    "cw5WSxpEOcA",
+    "VB27cpYwOxE",
+    "f9rg7uHzLsg",
+    "QBMx6wK-ZOA",
+    "jXtDVeRTkQM",
+    "_FvBmqr4ep4",
+    "Gqidlqe8n60",
+    "8REy4EsAA6w",
+    "lDFXji9Luns",
+    "ffT0Z3kSO_w",
+    "-7I6wnm8QS4"
+   ],
+   "title": "星羽"
+  },
+  "UCRiCm5IE9Lg6QIyrYfeAnzg": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "xA8Bx2a1q7M",
+    "BYJ5ih0-WZk",
+    "WiOkyyCxJt4",
+    "_zARVHAwjdg",
+    "_XfodWkMIl4",
+    "796-d69IDIk",
+    "mFymJKvfVEI",
+    "EZilCVXuaFY",
+    "kqUNJUHTxZM",
+    "vImwaJa-5UI",
+    "Pfk2W86eCW4",
+    "9KiSQ4_9fHE",
+    "M9cTvOSBZgM",
+    "UsDX2Ln9Qs0",
+    "MooK7J1s7lc"
+   ],
+   "title": "馬尚知道"
+  },
+  "UCSZz94emjV-_twID4U6G6kA": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "AnVNofG-rrg",
+    "XICsAFhiU90",
+    "zquKqrdETGU",
+    "0dAyzIZaUwE",
+    "9h2DRpPyXBc",
+    "fwzYycQ5sYw",
+    "peY6ZbK4BgQ",
+    "lF_EQBtSw_o",
+    "tNQLUidQFpw",
+    "VU_UoSgGX7A",
+    "LAqH8saxnGI",
+    "3DZByfdtxs0",
+    "FLhJJP9F8EM",
+    "9ngnb49RQyE",
+    "UwMlBFPKhps"
+   ],
+   "title": "好惱公只上遊戲"
+  },
+  "UCVl2Wm4GUanwolLZU6yo18g": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [],
+   "title": "傻逼亨利"
+  },
+  "UCYfKcJL5IjKFLimTHroOzZg": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "bra7TRT67d4",
+    "eX06kh4JQnk",
+    "eDs-dwJU6AI",
+    "PEqoNRinsyc",
+    "t8YYvwZjMQI",
+    "62fzzwobj5M",
+    "6_6LB8VUWzA",
+    "jyccPHS8s70",
+    "BBfQJ0xaWWY",
+    "Bo_3TQ3rTcI",
+    "W02KjPNWvgU",
+    "iXDpmi-sypU",
+    "Xb9r3ZnlIgQ",
+    "wAKqeyL_H10",
+    "eM2g31BXAGI"
+   ],
+   "title": "nobody"
+  },
+  "UCYrD6PAghvleHnltvhwizIw": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [],
+   "title": "鄭貓貓"
+  },
+  "UCdzGnKKFerfxugeqBCFVqHw": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "howxblbuRpQ",
+    "lkCx99Oy1TI",
+    "j5E3pCbSR1s",
+    "JpBUmzt_CM0",
+    "cmqd-DkvuSU",
+    "K3az6IixoIc",
+    "HQ2NkpqyRJs",
+    "x_xfVGAy_vI",
+    "R57qNQhUa60",
+    "pwX3jxO2hzg",
+    "UjeAwDCXE0k",
+    "bKa5WA5W19g",
+    "XN-kTrNNOLk",
+    "DUxh99Ovz_4",
+    "CR9hspBAAxY"
+   ],
+   "title": "GM CRØWN"
+  },
+  "UCepOMUJvRwQd16z04fMV-Yw": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "RBhcq9sJ13E",
+    "zLBlRB707ZA",
+    "hxRCTBBJsZI",
+    "m_eNm4dI1w0",
+    "mXebNe5IKSg",
+    "zeA689m_hSE",
+    "vuoFHqGMcQs",
+    "1sSA2flXamc",
+    "yIdAbN59wh8",
+    "qlSZVQV0lJc",
+    "djzyqp-4qYI",
+    "sBTVEXhnrpM",
+    "STKhoelaERw",
+    "J1EErLKYtY8",
+    "N4tEscIgR9E"
+   ],
+   "title": "大聲宗"
+  },
+  "UCgvNkpLtBSkkT4akcngn_4A": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "dJY-9XqRz8k",
+    "fxfl0PBN5BM",
+    "M87tC9zwSi0",
+    "DrwoK9yIyIw",
+    "5NjFUPVoPjM",
+    "IFc9FvpwMzc",
+    "D2Tkg8N0YiE",
+    "qdbh6tGp0rY",
+    "7VfVNtyqgqc",
+    "vsEJiBbfYio",
+    "AbjvMcKQaZk",
+    "U5xqw56fqDQ",
+    "Yc1E1RhmADc",
+    "4quR1m-NOhg",
+    "98k1xRO3BsU"
+   ],
+   "title": "怪獸歐吉桑"
+  },
+  "UCha9fbu9gJT_QIoAlAqpqzA": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "_dms8hYNCt0"
+   ],
+   "title": "巨龍大哥粉絲"
+  },
+  "UChnAg1bNwbmiFD1KnKjneKA": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "kio5n90waQk",
+    "wcl8OcrrOko",
+    "QAnUdHdEQDU",
+    "MMSFIVYk9G0",
+    "qbGXf6gpmY8",
+    "EO2cQDXG5Mg",
+    "vus7CCacBqk",
+    "ClFytmAb4xQ",
+    "gzT8P11fZFk",
+    "8l8GfxtqW6A",
+    "vb4ai_NYGwc",
+    "NLoiAIyEFeE",
+    "_zjf1RWBOzI"
+   ],
+   "title": "巨龍大哥"
+  },
+  "UCmTcuEYTYkRhe8crxl2FZmA": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "bdjo-2jJgE0",
+    "eZE4J_wyGmM",
+    "C7MPJn_BX-w",
+    "0GfxcaHn3g0",
+    "MDO4aTk2AF8",
+    "X-bSnt8aZaM",
+    "hgrYIBBe1U0",
+    "2RvFgLONbJQ",
+    "wURWjjqLXy0",
+    "rjIs3kmGI-Q",
+    "lht02qcXHmQ",
+    "-XxOdwOIdU8",
+    "_HC8v4gNwh0",
+    "wfArLQwqAXU",
+    "OFyPEX5ZvRU"
+   ],
+   "title": "サンゲームズ"
+  },
+  "UCoFqhXscypchv7wEMQx83Iw": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "oq92yc9dqD4",
+    "3xW4VeYhmj0",
+    "8q5UQBEJsfg",
+    "dfoyh0RA_fM",
+    "_SlnG3TWi2A",
+    "IO0P5fYPiiQ",
+    "5iC5KUVGF3U",
+    "NC5FxTdekFs",
+    "GS4z9RLrOQQ",
+    "NomCGnMFzxE",
+    "3TCHDCJSyvk",
+    "ciJGq1KDwIE",
+    "xMJEjLzRVss",
+    "By1QVQeM-is",
+    "4gna7ME3Ito"
+   ],
+   "title": "孩子他爸"
+  },
+  "UCvB4-hHgF-sOn7trFNgTWpQ": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "kC59uLl4WiM",
+    "QLi2XFdPa9U",
+    "xNOHWraQJQo",
+    "gKag0cnMvV0",
+    "yXk_oW9C_QU",
+    "Wha5sYFLFOA",
+    "23xN7Kkp39c",
+    "S_Uq_1OVZm4",
+    "A1czmhmoGkI",
+    "ZA7NZNmxeuA",
+    "l-1UtoPTQfU",
+    "w3Sgv-ApA2A",
+    "hsw3XcasHKg",
+    "qYtBPEzl898",
+    "EOElzxVn0qc"
+   ],
+   "title": "嗡嗡"
+  },
+  "UCwB-2uDeOepwPSLvPYX2TnA": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "nAGOYkE7kWQ",
+    "E4wsyie_P2k",
+    "nDcPWd4aFio",
+    "L0UOM6aY7L4",
+    "xLEQDN78XXo",
+    "OzmdWV-3pOc",
+    "RhHIns6ARS0",
+    "FMhsl1xqrbM",
+    "maZcHHMrb88",
+    "V1kABbSN73E",
+    "ZEsNwxp_WbU",
+    "tQi6h0SzGKs",
+    "6kQRRxKX63c",
+    "jC2ppTZoBUk",
+    "ma0SpfxExKE"
+   ],
+   "title": "雪糕仔"
+  },
+  "UCwUHWTNYApK6aljByDAfBqg": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "pNFcjyxHOpw",
+    "90zh5f6MzfU",
+    "dbnL8Vzokks",
+    "Sn5RIgHzkAg",
+    "H6pENLtvd18",
+    "RmDHqFGuVBc",
+    "QOC4H9q2aFE",
+    "IICB6tznxS4",
+    "GBSMGUqoo68",
+    "RJ9rPMOHM5Y",
+    "igQznuHJ4Rw",
+    "oLt2UL22baI"
+   ],
+   "title": "吉良吉影玩遊戲"
+  },
+  "UCy2Cnbsy4CNMM6Pv44zWg5g": {
+   "init": [
+    "rss"
+   ],
+   "last_ok": "2026-09-21T07:07:53.618350+00:00",
+   "seen": [
+    "w0qobIsFZp4",
+    "QDK1n8BdieI",
+    "lfIMqPaU93A",
+    "6esDRDpbGdo"
+   ],
+   "title": "真戰阿里"
   }
  },
  "heartbeat": "2026-09",
