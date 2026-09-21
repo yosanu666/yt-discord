@@ -57,25 +57,48 @@ def http_get(url, tries=3):
     raise last
 
 
-def post_discord(content, allowed):
-    body = json.dumps({"content": content, "allowed_mentions": {"parse": allowed}}).encode("utf-8")
-    for _ in range(5):
+THREAD_ID = os.environ.get("DISCORD_THREAD_ID", "").strip()  # フォーラムの決まった1スレッドに流したい場合だけ
+_forum = {"on": False}  # 投稿先がフォーラムだと分かったら True（自動判定）
+
+
+def _webhook_url():
+    if THREAD_ID:
+        sep = "&" if "?" in WEBHOOK else "?"
+        return f"{WEBHOOK}{sep}thread_id={THREAD_ID}"
+    return WEBHOOK
+
+
+def post_discord(content, allowed, thread_name=""):
+    """Webhookに投稿する。フォーラムチャンネルなら、1件ごとに新しい投稿（スレッド）を立てる。"""
+    for _ in range(6):
+        payload = {"content": content, "allowed_mentions": {"parse": allowed}}
+        if _forum["on"] and not THREAD_ID:
+            payload["thread_name"] = (thread_name or content.split("\n")[0] or "新着動画")[:100]
+        body = json.dumps(payload).encode("utf-8")
         req = urllib.request.Request(
-            WEBHOOK, data=body, method="POST",
+            _webhook_url(), data=body, method="POST",
             headers={"Content-Type": "application/json", "User-Agent": UA},
         )
         try:
             with urllib.request.urlopen(req, timeout=20):
                 return True
         except urllib.error.HTTPError as e:
+            raw = e.read()
             if e.code == 429:  # 送りすぎ。指定秒だけ待って再送
                 try:
-                    wait = float(json.loads(e.read().decode()).get("retry_after", 2))
+                    wait = float(json.loads(raw.decode()).get("retry_after", 2))
                 except Exception:
                     wait = 2.0
                 time.sleep(wait + 0.5)
                 continue
-            log(f"  ! Discordへの投稿に失敗: HTTP {e.code} {e.read()[:200]!r}")
+            text = raw.decode("utf-8", "replace")
+            if e.code == 400 and not _forum["on"] and ("thread_name" in text or "220001" in text):
+                log("  （投稿先はフォーラムと判定。動画ごとに新しい投稿として立てます）")
+                _forum["on"] = True
+                continue
+            if e.code == 400 and ("220003" in text or "tag" in text.lower()):
+                log("  ! フォーラムで「タグ必須」になっています。フォーラムの設定でタグ必須をオフにしてください")
+            log(f"  ! Discordへの投稿に失敗: HTTP {e.code} {text[:200]}")
             return False
         except Exception as e:
             log(f"  ! Discordへの投稿に失敗: {e}")
@@ -422,7 +445,7 @@ def main():
             if DRY_RUN:
                 log("  [DRY RUN] " + notice)
             else:
-                if not post_discord(notice, []):
+                if not post_discord(notice, [], thread_name=f"{ch_title}｜新着通知を開始"):
                     failures += 1
                 time.sleep(1.2)
             continue
@@ -444,7 +467,7 @@ def main():
                 log("  [DRY RUN] " + msg.replace("\n", " / "))
                 ok = True
             else:
-                ok = post_discord(msg, allowed)
+                ok = post_discord(msg, allowed, thread_name=f"{v['author']}｜{v['title']}")
                 if not ok:
                     failures += 1
                 time.sleep(1.2)
