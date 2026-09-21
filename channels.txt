@@ -1,13 +1,32 @@
-# 通知したいYouTubeチャンネルを1行に1つ書きます。数に上限はありません。
-# 書き方はどれでもOK（URLの ?si=... が付いたままでも大丈夫）：
-#   https://youtube.com/@meimon-yowa
-#   @meimon-yowa
-#   UC7ohjjJAuEoSqhetYT8fIEQ
-# 「#」で始まる行はメモ扱いで無視されます。
+# 通知したいYouTubeチャンネル（1行に1つ。# から後ろはメモ）
 
-https://youtube.com/@meimon-yowa   # 弱小の名門
-https://www.youtube.com/@disaromaraichi
-https://www.youtube.com/@channel.5611
-https://www.youtube.com/@tomotinotyannneru
-https://www.youtube.com/@%E3%82%B5%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BA
-https://www.youtube.com/@kichi9576
+UC7ohjjJAuEoSqhetYT8fIEQ   # 弱小の名門  @meimon-yowa
+UC3ZIJr4UalbUbHXBzsabqTA   # ディサロ【エンタメ覇道ちゃんねる】  @disaromaraichi
+UC3MhLMcQk4pORLm7VeapEYA   # 乱CHANNEL  @channel.5611
+UC6tyRPZFsGORc-bOn1lXSmQ   # ともちー  @tomotinotyannneru
+UCmTcuEYTYkRhe8crxl2FZmA   # サンゲームズ  @サンゲームズ
+UC2koII4nr593H4ofhpMxpcg   # kichi  @kichi9576
+UCFKtcZ-ee9jmYgbihRIdsSg   # R1ck  @Rck-vj3dm
+UCNBg1rsQCln4P9t2XfYUzSg   # 星羽  @星羽
+UCepOMUJvRwQd16z04fMV-Yw   # 大聲宗  @BIGCCHUNG（@DORWOKDG）
+UCgvNkpLtBSkkT4akcngn_4A   # 怪獸歐吉桑  @怪獸歐吉桑
+UCoFqhXscypchv7wEMQx83Iw   # 孩子他爸  @kidsdad
+UCwB-2uDeOepwPSLvPYX2TnA   # 雪糕仔  @雪糕仔
+UCvB4-hHgF-sOn7trFNgTWpQ   # 嗡嗡  @wonwon2020
+UCSZz94emjV-_twID4U6G6kA   # 好惱公只上遊戲  @好惱公只上遊戲
+UCAKTeaah_pAk423FW2aIxdQ   # JustiGame Lab  @正義養貓中
+https://www.youtube.com/@桐生一馬-55H   # 桐生一馬（ライブURLから判明）
+UCdzGnKKFerfxugeqBCFVqHw   # GM CRØWN  @lilcrownboyz
+UChnAg1bNwbmiFD1KnKjneKA   # 巨龍大哥  @巨龍大哥-d6n
+UCGMZgUKE0oyWYZrxLANsvsQ   # 支竹火腩飯  @支竹火腩飯
+UC7Ggx2F9x1nlv1nZJ35rTSg   # 主能夠  @主能夠-p8t
+UCRiCm5IE9Lg6QIyrYfeAnzg   # 馬尚知道  @M-Know
+UCwUHWTNYApK6aljByDAfBqg   # Yoshikage Kira Plays Games  @立花誾千代ee
+UCYrD6PAghvleHnltvhwizIw   # 鄭貓貓  @鄭貓貓
+UCI9p_4WS94s_dDfqg9XF-Tw   # 楊志  @楊志-b9r
+UCVl2Wm4GUanwolLZU6yo18g   # 傻逼亨利  @傻逼亨利-h1i
+UCha9fbu9gJT_QIoAlAqpqzA   # 巨龍大哥粉絲  @aJosh-c1m
+UCG3RUxM5J25GBGT-irbUP3w   # TheTrampyZebras  @TheTrampyZebras
+UCYfKcJL5IjKFLimTHroOzZg   # nobody  @nobody5812
+UCy2Cnbsy4CNMM6Pv44zWg5g   # 真戰阿里  @realwar-ari
+UC3LEiJL7FggdyKykOgj2W-w   # Game House 遊戲小屋  @gamehouse843
