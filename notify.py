@@ -14,6 +14,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -21,11 +22,13 @@ from datetime import datetime, timedelta, timezone
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CHANNELS_FILE = os.path.join(ROOT, "channels.txt")
 TEMPLATE_FILE = os.path.join(ROOT, "template.txt")
+KEYWORDS_FILE = os.path.join(ROOT, "keywords.txt")
 STATE_FILE = os.path.join(ROOT, "state.json")
 
 WEBHOOK = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 SKIP_SHORTS = os.environ.get("SKIP_SHORTS", "false").lower() == "true"
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
+TEST_POST = os.environ.get("TEST_POST", "").lower() == "true"  # 手動実行で「テスト投稿」にチェックしたとき
 
 MAX_AGE = timedelta(days=3)      # これより古い動画は、取りこぼし扱いでも投稿しない
 SEEN_KEEP = 200                  # チャンネルごとに覚えておく動画IDの数
@@ -108,23 +111,49 @@ def post_discord(content, allowed, thread_name=""):
 
 # ---------------- 設定の読み込み ----------------
 def read_channels():
-    lines = []
+    """channels.txt を読む。行頭に * が付いた行は、絞り込みをせず全部通知する。"""
+    out = []
     with open(CHANNELS_FILE, encoding="utf-8") as f:
         for raw in f:
             s = raw.strip()
             if not s or s.startswith("#"):
                 continue
             s = re.split(r"\s+#", s, maxsplit=1)[0].strip()  # 行末のメモを除く
+            no_filter = s.startswith("*")
+            s = s.lstrip("*").strip()
             if s:
-                lines.append(s)
-    return lines
+                out.append({"raw": s, "no_filter": no_filter})
+    return out
+
+
+def load_keywords():
+    """keywords.txt の言葉。1つも無ければ絞り込みなし（全部通知）。"""
+    try:
+        with open(KEYWORDS_FILE, encoding="utf-8") as f:
+            words = []
+            for raw in f:
+                w = raw.strip()
+                if w and not w.startswith("#"):
+                    words.append(w.lower())
+            return words
+    except FileNotFoundError:
+        return []
+
+
+def matches(title, keywords):
+    t = (title or "").lower()
+    return any(w in t for w in keywords)
 
 
 def normalize(entry):
     """1行の書き方を (キー, 直接ID or None, 調べに行くURL or None) にそろえる。"""
+    entry = urllib.parse.unquote(entry)  # %E3%82... の形の日本語URLも読めるようにする
     m = UC_RE.search(entry)
     if m:
         return m.group(1), m.group(1), None
+    m = re.search(r"(?:watch\?v=|youtu\.be/|/live/|/shorts/)([\w-]{11})", entry)
+    if m:  # 動画・配信のURLなら、その動画のチャンネルを登録する
+        return "video:" + m.group(1), None, "video:" + m.group(1)
     s = entry.split("?")[0].rstrip("/")
     m = re.search(r"@([\w.\-]+)", s)
     if m:
@@ -139,6 +168,13 @@ def normalize(entry):
 
 
 def resolve_id(page_url):
+    if page_url.startswith("video:"):
+        vid = page_url[6:]
+        info = json.loads(http_get("https://www.youtube.com/oembed?format=json&url="
+                                   + urllib.parse.quote(f"https://www.youtube.com/watch?v={vid}", safe="")))
+        page_url = info.get("author_url") or ""
+        if not page_url:
+            return None
     html = http_get(page_url)
     for pat in (
         r'<link rel="canonical" href="https://www\.youtube\.com/channel/(UC[0-9A-Za-z_-]{22})"',
@@ -365,6 +401,48 @@ def render(tpl, v):
                .replace("{date}", f"{date.month}月{date.day}日 {date:%H:%M}"))
 
 
+def fetch_any(cid):
+    """RSS→だめならチャンネルページ、の順に読む。(チャンネル名, 動画一覧, 読み方) を返す。"""
+    try:
+        t, v = fetch_feed(cid)
+        return t, v, "rss"
+    except Exception as e_rss:
+        try:
+            t, v = fetch_page(cid)
+            return t, v, "page"
+        except Exception as e_page:
+            raise RuntimeError(f"RSS: {e_rss} / ページ: {e_page}")
+
+
+def run_test(entries, resolved, tpl, allowed):
+    """登録チャンネルの最新動画を【テスト】として1件だけ流す。通知済みの記録には触れない。"""
+    for item in entries:
+        entry = item["raw"]
+        key, cid, page = normalize(entry)
+        if not key:
+            continue
+        cid = cid or resolved.get(key)
+        try:
+            if not cid:
+                cid = resolve_id(page)
+            if not cid:
+                continue
+            title, videos, source = fetch_any(cid)
+        except Exception as e:
+            log(f"- {entry}: 読めなかったので次のチャンネルで試します（{e}）")
+            continue
+        if not videos:
+            continue
+        v = sorted(videos, key=lambda x: x["published"], reverse=True)[0]
+        msg = "【テスト投稿】\n" + render(tpl, v)
+        log(f"テスト投稿します（{source}で取得）: {v['author']} / {v['title']}")
+        ok = True if DRY_RUN else post_discord(msg, allowed, thread_name=f"【テスト】{v['author']}｜{v['title']}")
+        log("テスト投稿に成功しました" if ok else "テスト投稿に失敗しました")
+        sys.exit(0 if ok else 1)
+    log("テストに使える動画が見つかりませんでした")
+    sys.exit(1)
+
+
 # ---------------- 本体 ----------------
 def main():
     if not WEBHOOK and not DRY_RUN:
@@ -385,11 +463,16 @@ def main():
     state["heartbeat"] = now.strftime("%Y-%m")  # 月1回は必ずコミットが起き、定期実行が止められるのを防ぐ
 
     entries = read_channels()
-    log(f"登録チャンネル: {len(entries)}件")
+    keywords = load_keywords()
+    log(f"登録チャンネル: {len(entries)}件" + (f"／絞り込みの言葉: {len(keywords)}個" if keywords else "／絞り込みなし"))
+    if TEST_POST:
+        run_test(entries, resolved, tpl, allowed)
     posted = 0
     failures = 0
 
-    for entry in entries:
+    for item in entries:
+        entry = item["raw"]
+        use_filter = bool(keywords) and not item["no_filter"]
         key, cid, page = normalize(entry)
         if not key:
             log(f"- 読めない行を飛ばしました: {entry}")
@@ -407,18 +490,14 @@ def main():
                     continue
                 resolved[key] = cid
 
-        source = "rss"
         try:
-            ch_title, videos = fetch_feed(cid)
-        except Exception as e_rss:
-            source = "page"
-            try:
-                ch_title, videos = fetch_page(cid)
-                log(f"  （RSSが使えなかったため、チャンネルページから読みました: {e_rss}）")
-            except Exception as e_page:
-                log(f"- {entry}: 新着を取得できませんでした（RSS: {e_rss} / ページ: {e_page}）。次回また試します")
-                failures += 1
-                continue
+            ch_title, videos, source = fetch_any(cid)
+            if source == "page":
+                log(f"  （{ch_title}: RSSが使えなかったため、チャンネルページから読みました）")
+        except Exception as e:
+            log(f"- {entry}: 新着を取得できませんでした（{e}）。次回また試します")
+            failures += 1
+            continue
 
         rec = chans.get(cid)
         if rec is not None and source not in rec.get("init", ["rss"]):
@@ -456,10 +535,13 @@ def main():
         fresh = [v for v in videos if v["id"] not in seen_set]
         fresh.sort(key=lambda v: v["published"])  # 古い順に流す
 
+        filtered = 0
         for v in fresh:
             too_old = now - v["published"] > MAX_AGE
-            skip = too_old or (SKIP_SHORTS and v["is_short"])
-            if skip:
+            off_topic = use_filter and not matches(v["title"], keywords)
+            if too_old or off_topic or (SKIP_SHORTS and v["is_short"]):
+                if off_topic and not too_old:
+                    filtered += 1
                 seen.insert(0, v["id"])
                 continue
             msg = render(tpl, v)
@@ -477,13 +559,15 @@ def main():
                 log(f"  + 投稿: {v['author']} / {v['title']}")
         rec["seen"] = seen[:SEEN_KEEP * 2]
         rec["last_ok"] = now.isoformat()
+        if filtered:
+            log(f"- {ch_title}: {filtered}本を絞り込みで見送りました")
         if not fresh:
             log(f"- {ch_title}: 新着なし")
 
     # channels.txt から消したチャンネルの記録は片付ける
     active_ids = set()
-    for entry in entries:
-        key, cid, _ = normalize(entry)
+    for item in entries:
+        key, cid, _ = normalize(item["raw"])
         cid = cid or resolved.get(key)
         if cid:
             active_ids.add(cid)
